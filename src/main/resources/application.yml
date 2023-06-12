@@ -1,0 +1,13 @@
+app:
+  dbone:
+    datasource:
+      class-driver: com.mysql.jdbc.Driver
+      username: root
+      password: dasha09092003
+      url: jdbc:mysql://localhost:3306/intership
+  dbtwo:
+    datasource:
+      class-driver: com.mysql.jdbc.Driver
+      username: root
+      password: dasha09092003
+      url: jdbc:mysql://localhost:3306/intership2

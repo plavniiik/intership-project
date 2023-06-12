@@ -1,0 +1,7 @@
+BODY {
+    position: relative;
+    min-width: 1000px;
+    font: normal 13px Arial, Helvetica, sans-serif;
+    background-color: #fff !important;
+    color: #000000;
+}

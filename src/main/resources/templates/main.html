@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru"xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Экономические показатели</title>
+  <link th:href="@{/styles/style.css}" rel="stylesheet" />
+</head>
+<body>
+<header>
+
+</header>
+<div class="container">
+<!--  <p>Количество экономических показателей:</p>-->
+<!--  <div  th:text="${indicators}">-->
+<!--  </div>-->
+
+  <div th:switch="${inds}">
+    <h2 class="heading1" th:case="null">Нет показателей!</h2>
+    <div th:case="*">
+
+      <table>
+        <thead>
+        <tr>
+          <th class="heading1">id</th>
+          <th class="heading1">Год</th>
+          <th class="heading1">Выпуск товарной продукции</th>
+          <th class="heading1">Реализация товарной продукции</th>
+          <th class="heading1">Затраты на выпуск продукции</th>
+          <th class="heading1">Валовая прибыль</th>
+          <th class="heading1">Рентабельность от реализации</th>
+          <th class="heading1">Численность персонала</th>
+          <th class="heading1">Среднемесячная зарплата</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="inds : ${inds}">
+          <td class="heading1" th:text="${inds.id}"></td>
+          <td class="heading1" th:text="${inds.year}"></td>
+          <td class="heading1" th:text="${inds.output}"></td>
+          <td class="heading1" th:text="${inds.sales_of_products}"></td>
+          <td class="heading1" th:text="${inds.release_costs}"></td>
+          <td class="heading1" th:text="${inds.gross_profit}"></td>
+          <td class="heading1" th:text="${inds.return_on_sales}"></td>
+          <td class="heading1" th:text="${inds.stuff}"></td>
+          <td class="heading1" th:text="${inds.average_salary}"></td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<br>
+
+  <form action="#" th:action="@{/indicatorsFindByYear}" th:object="${inds}" method="get">
+    <select class="form-control" id="inds" name="inds">
+      <option value="">Выберите год</option>
+      <option th:each="inds : ${inds}"
+              th:value="${inds.year}"
+              th:text="${inds.year}">
+      </option>
+    </select>
+    </br></br>
+    <input  type="submit" value="Найти показатели">
+  </form>
+
+  <div th:switch="${employee}">
+    <h2 class="heading1" th:case="null">Нет сотрудников!</h2>
+    <div th:case="*">
+
+      <table>
+        <thead>
+        <tr>
+          <th class="heading1">id</th>
+          <th class="heading1">Фамилия</th>
+          <th class="heading1">Зарплата</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employee}">
+          <td class="heading1" th:text="${employee.id}"></td>
+          <td class="heading1" th:text="${employee.surname}"></td>
+          <td class="heading1" th:text="${employee.salary}"></td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <form action="#" th:action="@{/indicatorsFindBySurname}" th:object="${employee}" method="get">
+    <input type="text" class="text heading1" th:name="surname" id="surname"  placeholder="Фамилия">
+    <span class="sss">Введите фамилию</span>
+    </br></br>
+    <input  type="submit" value="Найти сотрудника">
+  </form>
+
+</div>
+
+
+<footer>
+
+</footer>
+</body>
+</html>

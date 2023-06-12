@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru"xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Экономические показатели</title>
+</head>
+<body>
+<header>
+
+</header>
+<div class="container">
+  <div th:switch="${indicators}">
+    <h2 class="heading1" th:case="null">Нет показателей!</h2>
+    <div th:case="*">
+
+      <table>
+        <thead>
+        <tr>
+          <th class="heading1">id</th>
+          <th class="heading1">Год</th>
+          <th class="heading1">Выпуск товарной продукции</th>
+          <th class="heading1">Реализация товарной продукции</th>
+          <th class="heading1">Затраты на выпуск продукции</th>
+          <th class="heading1">Валовая прибыль</th>
+          <th class="heading1">Рентабельность от реализации</th>
+          <th class="heading1">Численность персонала</th>
+          <th class="heading1">Среднемесячная зарплата</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="heading1" th:text="${indicators.id}"></td>
+          <td class="heading1" th:text="${indicators.year}"></td>
+          <td class="heading1" th:text="${indicators.output}"></td>
+          <td class="heading1" th:text="${indicators.sales_of_products}"></td>
+          <td class="heading1" th:text="${indicators.release_costs}"></td>
+          <td class="heading1" th:text="${indicators.gross_profit}"></td>
+          <td class="heading1" th:text="${indicators.return_on_sales}"></td>
+          <td class="heading1" th:text="${indicators.stuff}"></td>
+          <td class="heading1" th:text="${indicators.average_salary}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<footer>
+</footer>
+</body>
+</html>

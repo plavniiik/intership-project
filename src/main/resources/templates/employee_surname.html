@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru"xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Экономические показатели</title>
+</head>
+<body>
+<header>
+
+</header>
+<div class="container">
+    <div th:switch="${employee}">
+        <h2 class="heading1" th:case="null">Нет сотрудников!</h2>
+        <div th:case="*">
+
+            <table>
+                <thead>
+                <tr>
+                    <th class="heading1">id</th>
+                    <th class="heading1">Фамилия</th>
+                    <th class="heading1">Зарплата</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="employee : ${employee}">
+                    <td class="heading1" th:text="${employee.id}"></td>
+                    <td class="heading1" th:text="${employee.surname}"></td>
+                    <td class="heading1" th:text="${employee.salary}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<footer>
+</footer>
+</body>
+</html>
